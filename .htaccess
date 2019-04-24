@@ -1,0 +1,15 @@
+#SetEnv CI_ENV production
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteCond $1 !^(index\.php|resource|images|captcha|data|include|info|uploads|robots\.txt)
+	RewriteRule ^(.*)$ /service/index.php/$1 [L]
+</IfModule>
+
+<FilesMatch ".(ttf|otf|eot|woff|woff2)$">
+  <IfModule mod_headers.c>
+    Allow from all
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>

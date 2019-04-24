@@ -1,0 +1,32 @@
+# IDEA Ignores #
+################
+.idea/
+.vscode/
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# service
+vendor/
+
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+
+# application/config/config.php
+# application/config/database.php
+# application/config/constants.php
+
+# misc
+.DS_Store
