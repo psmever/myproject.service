@@ -272,11 +272,24 @@ class User_master_model extends SERVICE_Model
 			return $this->returnModelDBError($this->db->error());
 		}
     }
+		
+	public function updateUserMasterProfieState($user_uid = NULL)
+	{
+		$this->db->set('profile_state', 'Y');
+		$this->db->set('update_date', 'NOW()', FALSE);
+		$this->db->where('user_uid', $user_uid);
+		if ($this->db->update($this->TABLENAME))
+		{
+			return $this->returnModelDBSuccess();
+		}
+		else
+		{
+			return $this->returnModelDBError($this->db->error());
+		}
+	}
 
     public function updateUserMasterUserName($user_uid = NULL, $params = array())
     {
-
-        $this->db->set('profile_state', 'Y');
         $this->db->set('update_date', 'NOW()', FALSE);
         $this->db->where('user_uid', $user_uid);
         if ($this->db->update($this->TABLENAME, $params))

@@ -136,6 +136,13 @@ class Profile extends SERVICE_Controller {
         ]);
 
     }
+    
+    private function updateUserMasterProfileState($user_uid = NULL)
+    {
+    	if(empty($user_uid)) return false;
+    	
+    	return $this->User_master_model->updateUserMasterProfieState($user_uid);
+    }
 
     private function userNameCheck($name = NULL)
     {
@@ -299,11 +306,11 @@ class Profile extends SERVICE_Controller {
 
         if(strcmp($nowUser_name, $user_name))
         {
-            $uResult = $this->updateUserName($user_uid, $user_name);
+            $this->updateUserName($user_uid, $user_name);
         }
 
         $this->updateUserBasicData($user_uid, $user_gender, $user_web_site, strip_tags_content($user_intro), $user_birth);
-
+        $this->updateUserMasterProfileState($user_uid);
 
         $selectResult = $this->getUserUidBasicInfo($user_uid);
 
