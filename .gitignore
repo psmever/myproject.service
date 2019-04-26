@@ -1,4 +1,4 @@
-# IDEA Ignores #
+i# IDEA Ignores #
 ################
 .idea/
 .vscode/
@@ -30,3 +30,4 @@ application/logs/*
 
 # misc
 .DS_Store
+

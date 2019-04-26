@@ -216,5 +216,11 @@ class Test extends REST_Controller {
 	
 
     }
+    
+    
+    public function server_get()
+    {
+    	echo "server111";
+    }
 
 }
